@@ -7,21 +7,54 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-        <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-        <!-- Styles -->
         @livewireStyles
     </head>
     <body>
+        
+        <nav class="bg-white border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="shrink-0 flex items-center">
+                        <a href="{{ url('/') }}">
+                            <x-application-mark class="block h-9 w-auto" />
+                        </a>
+                    </div>
+
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        @if (Route::has('login'))
+                            <div class="space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                @auth
+                                    <x-nav-link href="{{ route('dashboard') }}">
+                                        {{ __('Dashboard') }}
+                                    </x-nav-link>
+                                @else
+                                    <x-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
+                                        {{ __('Log in') }}
+                                    </x-nav-link>
+
+                                    @if (Route::has('register'))
+                                        <x-nav-link href="{{ route('register') }}" :active="request()->routeIs('register')">
+                                            {{ __('Register') }}
+                                        </x-nav-link>
+                                    @endif
+                                @endauth
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </nav>
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
 
+        <x-footer />
+        
         @livewireScripts
     </body>
 </html>
