@@ -1,44 +1,61 @@
-<footer class="bg-gray-800 mt-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<footer class="bg-gray-800 mt-12" style="background-color: #333333;">
+    {{-- Nag-set tayo ng Dark Charcoal background --}}
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4"> 
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
 
-            <div class="col-span-2 md:col-span-1">
-                <h3 class="text-2xl font-bold text-teal-400">MENDREA</h3>
-                <p class="text-gray-400 text-sm mt-2">Simply Unique.</p>
-            </div>
+        <div class="col-span-2 md:col-span-1">
+            {{-- Logo --}}
+            <img
+                {{-- Heto ang bagong src --}}
+                src="{{ asset('image/logo/whitetext-logo.png') }}" 
+                alt="logo"
+                {{-- Pinalitan ang mx-auto ng w-32 at pinalitan ang mb-2 ng mb-1 --}}
+                class="mb-1 w-32 h-auto" 
+            >
+            
+        </div>
 
             <div>
-                <h4 class="text-lg font-semibold mb-3 text-gray-200">Shop</h4>
-                <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="#" class="hover:text-teal-400">All Products</a></li>
-                    <li><a href="#" class="hover:text-teal-400">New Arrivals</a></li>
-                    <li><a href="#" class="hover:text-teal-400">Best Sellers</a></li>
-                    <li><a href="#" class="hover:text-teal-400">Gift Cards</a></li>
+                {{-- Heading, Light Grey --}}
+                <h4 class="text-base font-semibold mb-2 text-gray-200">Shop</h4> 
+                {{-- Links, Light Grey, may hover effect na Muted Beige/Brown --}}
+                <ul class="space-y-1.5 text-xs text-gray-400" style="color: #CCCCCC;"> 
+                    <li><a href="#" class="hover:underline" style="color: #CCCCCC; transition: color 0.2s;" onmouseover="this.style.color='#C5B099'" onmouseout="this.style.color='#CCCCCC'">All Products</a></li>
+                    <li><a href="#" class="hover:underline" style="color: #CCCCCC; transition: color 0.2s;" onmouseover="this.style.color='#C5B099'" onmouseout="this.style.color='#CCCCCC'">New Arrivals</a></li>
+                    <li><a href="#" class="hover:underline" style="color: #CCCCCC; transition: color 0.2s;" onmouseover="this.style.color='#C5B099'" onmouseout="this.style.color='#CCCCCC'">Best Sellers</a></li>
+                    <li><a href="#" class="hover:underline" style="color: #CCCCCC; transition: color 0.2s;" onmouseover="this.style.color='#C5B099'" onmouseout="this.style.color='#CCCCCC'">Gift Cards</a></li>
                 </ul>
             </div>
 
             <div>
-                <h4 class="text-lg font-semibold mb-3 text-gray-200">Company</h4>
-                <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="#" class="hover:text-teal-400">Our Story</a></li>
-                    <li><a href="#" class="hover:text-teal-400">Careers</a></li>
-                    <li><a href="#" class="hover:text-teal-400">Press</a></li>
+                {{-- Heading, Light Grey --}}
+                <h4 class="text-base font-semibold mb-2 text-gray-200">Company</h4>
+                {{-- Links, Light Grey, may hover effect na Muted Beige/Brown --}}
+                <ul class="space-y-1.5 text-xs text-gray-400" style="color: #CCCCCC;">
+                    <li><a href="#" class="hover:underline" style="color: #CCCCCC; transition: color 0.2s;" onmouseover="this.style.color='#C5B099'" onmouseout="this.style.color='#CCCCCC'">Our Story</a></li>
+                    <li><a href="#" class="hover:underline" style="color: #CCCCCC; transition: color 0.2s;" onmouseover="this.style.color='#C5B099'" onmouseout="this.style.color='#CCCCCC'">Careers</a></li>
+                    <li><a href="#" class="hover:underline" style="color: #CCCCCC; transition: color 0.2s;" onmouseover="this.style.color='#C5B099'" onmouseout="this.style.color='#CCCCCC'">Press</a></li>
                 </ul>
             </div>
 
             <div>
-                <h4 class="text-lg font-semibold mb-3 text-gray-200">Help</h4>
-                <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="#" class="hover:text-teal-400">FAQs</a></li>
-                    <li><a href="#" class="hover:text-teal-400">Shipping & Returns</a></li>
-                    <li><a href="#" class="hover:text-teal-400">Contact Us</a></li>
+                {{-- Heading, Light Grey --}}
+                <h4 class="text-base font-semibold mb-2 text-gray-200">Help</h4>
+                {{-- Links, Light Grey, may hover effect na Muted Beige/Brown --}}
+                <ul class="space-y-1.5 text-xs text-gray-400" style="color: #CCCCCC;">
+                    <li><a href="#" class="hover:underline" style="color: #CCCCCC; transition: color 0.2s;" onmouseover="this.style.color='#C5B099'" onmouseout="this.style.color='#CCCCCC'">FAQs</a></li>
+                    <li><a href="#" class="hover:underline" style="color: #CCCCCC; transition: color 0.2s;" onmouseover="this.style.color='#C5B099'" onmouseout="this.style.color='#CCCCCC'">Shipping & Returns</a></li>
+                    <li><a href="#" class="hover:underline" style="color: #CCCCCC; transition: color 0.2s;" onmouseover="this.style.color='#C5B099'" onmouseout="this.style.color='#CCCCCC'">Contact Us</a></li>
                 </ul>
             </div>
 
         </div>
 
-        <div class="mt-10 pt-6 border-t border-gray-700 text-center text-sm text-gray-500">
-            &copy; 2025 MENDREA Goods. All rights reserved.
+        {{-- Footer line at copyright --}}
+        <div class="mt-6 pt-4 border-t" style="border-color: #555555; opacity: 0.8;">
+            <p class="text-center text-xs" style="color: #AAAAAA;">
+                &copy; 2025 MENDREA Goods. All rights reserved.
+            </p>
         </div>
     </div>
 </footer>

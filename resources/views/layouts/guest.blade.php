@@ -20,32 +20,18 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16">
                     <div class="shrink-0 flex items-center">
-                        <a href="{{ url('/') }}">
-                            <x-application-mark class="block h-9 w-auto" />
-                        </a>
+                        <img
+                            {{-- Tiyakin na TAMA ang image path --}}
+                            src="{{ asset('image/logo/blacktext-logo.png') }}" 
+                            alt="logo"
+                            class="h-20 w-auto" {{-- Maaaring h-10 or h-12 depende sa aktuwal na logo size --}}
+                        >
                     </div>
 
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        @if (Route::has('login'))
-                            <div class="space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                @auth
-                                    <x-nav-link href="{{ route('dashboard') }}">
-                                        {{ __('Dashboard') }}
-                                    </x-nav-link>
-                                @else
-                                    <x-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
-                                        {{ __('Log in') }}
-                                    </x-nav-link>
-
-                                    @if (Route::has('register'))
-                                        <x-nav-link href="{{ route('register') }}" :active="request()->routeIs('register')">
-                                            {{ __('Register') }}
-                                        </x-nav-link>
-                                    @endif
-                                @endauth
-                            </div>
-                        @endif
-                    </div>
+                    <div class="flex items-center">
+                        <a href="#') }}" class="text-sm font-normal text-gray-500 hover:text-[#EE4D2D] transition ease-in-out duration-150">
+                            Need help?
+                        </a>    
                 </div>
             </div>
         </nav>
