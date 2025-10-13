@@ -1,145 +1,156 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ELLE FASHION | Timeless Style</title>
 
-        <title>{{ config('app.name', 'Bags Store') }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-
-        @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-            @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @else
-            <style>
-                :root {
-                    --color-primary-bg: #FDFDFC;
-                    --color-header-bg: #eae4e4ff;
-                    --color-primary-text: #1b1b18;
-                    --color-border-subtle: #e3e3e0;
-                    --color-accent-peach: #FFC89C;
-                    --color-secondary-grey: #6b7280;
-                }
-                body {
-                    font-family: 'Instrument Sans', sans-serif;
-                }
-                .product-card:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-                }
-            </style>
-        @endif
-    </head>
-    <body class="bg-[var(--color-primary-bg)] text-[var(--color-primary-text)] min-h-screen flex flex-col antialiased">
-        @include('components.header') 
-
-        <main class="flex-grow"> 
-
-            {{-- Start of Hero Section (Corrected for "Bags E-commerce" theme) --}}
-            <div class="max-w-30xl mx-auto py-12 px-4 sm:px-0 lg:px-15">
-                <section class="relative min-h-[600px] flex items-center justify-center overflow-hidden">
-                    
-                    {{-- Background Image and Overlay --}}
-                    <div 
-                        class="absolute inset-0 bg-cover bg-center" 
-                        style="background-image: linear-gradient(135deg, rgba(193, 134, 93, 0.9), rgba(27, 27, 24, 0.85)), url('{{ $heroImage ?? asset('images/bags-hero.jpg') }}');"
-                    >
-                    </div> 
-                    
-                    {{-- Content --}}
-                    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
-                        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
-                            Carry Your Style with Luxury Bags
-                        </h1>
-                        <p class="text-xl sm:text-2xl text-white/90 mb-8 max-w-2xl mx-auto font-light">
-                            Explore our exclusive collection of handcrafted bags, designed for elegance, quality, and everyday function.
-                        </p>
-                        
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                            <a href="#featured" class="group inline-flex items-center justify-center text-lg px-8 py-4 rounded-xl font-semibold 
-                                bg-[var(--color-accent-peach)] text-[var(--color-primary-text)] hover:bg-[#ffb47a] transition duration-300">
-                                Shop New Arrivals
-                                <svg class="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <section id="featured" class="mb-12"> 
-                    <h2 class="text-3xl font-bold text-center mb-10 text-[var(--color-primary-text)]">Featured Bags</h2>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        
-                        {{-- Product 1: The Classic Tote --}}
-                        <div class="product-card bg-white rounded-2xl shadow-lg overflow-hidden transition duration-300 ease-in-out border border-gray-100">
-                            <img src="https://placehold.co/600x400/966F33/FDFDFC?text=Leather+Tote+Bag" alt="The Classic Leather Tote" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e3e3e0/6b7280?text=Image+Not+Found'">
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold mb-1">The Classic Leather Tote</h3>
-                                <p class="text-sm text-gray-500 mb-3">Spacious and elegant tote, perfect for work or travel. Made with full-grain Italian leather.</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-lg font-extrabold text-gray-800">$249.00</span>
-                                    <button class="bg-gray-800 text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-600 transition duration-200">
-                                        Add to Cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        {{-- Product 2: Urban Backpack --}}
-                        <div class="product-card bg-white rounded-2xl shadow-lg overflow-hidden transition duration-300 ease-in-out border border-gray-100">
-                            <img src="https://placehold.co/600x400/525252/FDFDFC?text=Urban+Backpack" alt="The Urban Commuter Backpack" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e3e3e0/6b7280?text=Image+Not+Found'">
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold mb-1">The Urban Commuter Backpack</h3>
-                                <p class="text-sm text-gray-500 mb-3">Durable, water-resistant backpack with padded laptop sleeve. Ideal for the daily grind.</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-lg font-extrabold text-gray-800">$129.00</span>
-                                    <button class="bg-gray-800 text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-600 transition duration-200">
-                                        Add to Cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        {{-- Product 3: The Evening Clutch --}}
-                        <div class="product-card bg-white rounded-2xl shadow-lg overflow-hidden transition duration-300 ease-in-out border border-gray-100">
-                            <img src="https://placehold.co/600x400/966F33/FDFDFC?text=Evening+Clutch" alt="The Evening Clutch" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e3e3e0/6b7280?text=Image+Not+Found'">
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold mb-1">The Suede Evening Clutch</h3>
-                                <p class="text-sm text-gray-500 mb-3">Compact and luxurious suede clutch, perfect for special occasions. Features a detachable chain strap.</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-lg font-extrabold text-gray-800">$79.00</span>
-                                    <button class="bg-gray-800 text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-600 transition duration-200">
-                                        Add to Cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </main>
-
-        @include('components.footer')
+    <style>
+        /* Define colors based on the Elle Fashion image (muted rose/brown for accent) */
+        :root {
+            --primary-text: #222222; 
+            --secondary-text: #666666; 
+            --accent-color: #8C5B56; /* Muted Rose/Brown from the image's buttons */
+            --light-bg: #F5F5F5; /* Light grey background */
+        }
         
-        <script>
-            // 🟢 FIX: This event listener now targets the newly added mobile menu button.
-            document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
-                const menu = document.getElementById('mobile-menu');
-                if (menu.classList.contains('hidden')) {
-                    menu.classList.remove('hidden');
-                } else {
-                    menu.classList.add('hidden');
-                }
-            });
-        </script>
+        /* Importing an elegant serif font (Playfair Display) for titles and a clean sans-serif (Inter) for body text */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif; /* Default for body text */
+            background-color: var(--light-bg); 
+            color: var(--primary-text);
+        }
+        
+        .font-serif-elegant {
+            font-family: 'Playfair Display', serif; /* Custom class for high-fashion headings */
+        }
 
-        @if (Route::has('login'))
-            <div class="h-14.5 hidden lg:block"></div>
-        @endif
-    </body>
+        /* Custom Tailwind classes for the new style */
+        .text-accent { color: var(--accent-color); }
+        .bg-accent { background-color: var(--accent-color); }
+        .hover\:bg-accent-dark:hover { background-color: #7A4E49; }
+        
+        /* Custom height utility for better responsiveness on the hero section to fit the screen */
+        .h-hero {
+            height: 50vh; 
+            max-height: 600px; 
+        }
+        @media (min-width: 640px) {
+            .h-hero {
+                height: 70vh; 
+            }
+        }
+    </style>
+
+    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @endif
+
+    <script>
+      
+    </script>
+</head>
+<body class="antialiased">
+
+    @include('navigations.navigation-welcome')
+
+<section class="relative h-hero mb-16 bg-white flex items-center justify-center">
+    <div class="relative max-w-7xl mx-auto px-8 md:px-16 flex flex-col md:flex-row items-center justify-between w-full h-full">
+
+        {{-- Left Content Area --}}
+        <div class="flex flex-col justify-center text-primary-text md:w-1/2 lg:w-2/5 p-4 md:p-0">
+            <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-4 font-serif-elegant">
+                Step Into Elegance
+            </h1>
+            <p class="text-lg md:text-xl mb-8 max-w-lg font-light text-secondary-text">
+                Discover our curated collection of premium sandals, designed for the modern woman who values both style and comfort.
+            </p>
+            <div class="flex space-x-4">
+                <a href="#" class="bg-accent hover:bg-accent-dark text-white font-semibold py-3 px-8 w-fit rounded-md transition duration-300">
+                    Shop Collection
+                </a>
+                <a href="#" class="border border-gray-300 text-primary-text font-semibold py-3 px-8 w-fit rounded-md hover:bg-gray-100 transition duration-300">
+                    New Arrivals
+                </a>
+            </div>
+        </div>
+
+        {{-- Right Image Area --}}
+        <div class="md:w-1/2 lg:w-3/5 h-full flex items-center justify-center p-4">
+            <img
+                {{-- IMPORTANT: Replace the placeholder below with your actual image path: --}}
+                src="{{ asset('products/image/CoverPage/cover-page.jpg') }}" 
+                alt="Elegant Sandals"
+                class="w-full h-auto max-h-full object-contain"
+            >
+        </div>
+    </div>
+</section>
+
+    <main class="max-w-7xl mx-auto">
+        
+        <section class="py-16 px-4 sm:px-6 lg:px-8 bg-light">
+            <h2 class="text-3xl font-bold text-primary text-center mb-12 font-serif-elegant">Fall/Winter Collection</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
+                    <img src="{{ asset('products/image/sandal-1.jpg') }}"  alt="Classic Block Heel Sandal" class="w-full h-72 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-medium text-primary">Classic Block Heel Sandal</h3>
+                        <p class="text-accent font-bold mt-1 mb-3">₱2,899</p>
+                        <a href="#" class="mt-3 text-sm inline-block bg-accent text-white font-semibold py-2 px-5 w-full rounded-md hover:bg-accent-dark transition duration-200">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
+                    <img src="{{ asset('products/image/sandal-2.jpg') }}" alt="Elegant Strappy Heels" class="w-full h-72 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-medium text-primary">Elegant Strappy Heels</h3>
+                        <p class="text-accent font-bold mt-1 mb-3">₱3,299</p>
+                        <a href="#" class="mt-3 text-sm inline-block bg-accent text-white font-semibold py-2 px-5 w-full rounded-md hover:bg-accent-dark transition duration-200">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
+                    <img src="{{ asset('products/image/sandal-3.jpg') }}" alt="Minimalist Flat Sandal" class="w-full h-72 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-medium text-primary">Minimalist Flat Sandal</h3>
+                        <p class="text-accent font-bold mt-1 mb-3">₱1,899</p>
+                        <a href="#" class="mt-3 text-sm inline-block bg-accent text-white font-semibold py-2 px-5 w-full rounded-md hover:bg-accent-dark transition duration-200">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
+                    <img src="{{ asset('products/image/sandal-4.jpg') }}" alt="Platform Wedge Sandal" class="w-full h-72 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="text-lg font-medium text-primary">Platform Wedge Sandal</h3>
+                        <p class="text-accent font-bold mt-1 mb-3">₱2,899</p>
+                        <a href="#" class="mt-3 text-sm inline-block bg-accent text-white font-semibold py-2 px-5 w-full rounded-md hover:bg-accent-dark transition duration-200">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block text-lg font-medium text-accent hover:underline decoration-accent transition duration-300">
+                    Explore the Full Lookbook &rarr;
+                </a>
+            </div>
+        </section>
+
+    </main>
+    @include('footers.footer-welcome')
+</body>
 </html>

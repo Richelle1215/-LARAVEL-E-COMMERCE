@@ -6,7 +6,10 @@
     <title>Admin Dashboard - {{ config('app.name', 'Laravel') }}</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    {{-- FONT: Inter from Google Fonts --}}
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/4.1.4/css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJ8u7tQO4E+JtB2UjYhT/T42f3Q7I1a0dJ3e1b7D6d75U/61fQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -16,15 +19,17 @@
     @else
         <style>
             :root {
-                --color-primary-bg: #FDFDFC;
-                --color-header-bg: #ffffff; 
-                --color-primary-text: #1b1b18;
-                --color-border-subtle: #e3e3e0;
-                --color-accent-peach: #FFC89C;
-                --color-secondary-grey: #6b7280;
+                /* BAGONG LIGHT COLOR SCHEME */
+                --color-primary-bg: #FFFFFF; /* Purong puti para sa ultra-light look */
+                --color-header-bg: #F8F9FA; /* Napakagaan na grey para sa header/topbar */
+                --color-primary-text: #343A40; /* Darker greyish-black para sa basahing text */
+                --color-border-subtle: #E9ECEF; /* Halos hindi nakikita ang border */
+                --color-accent-peach: #66CCFF; /* Fresh at Light Blue/Cyan accent (pinalitan ko ang peach) */
+                --color-secondary-grey: #ADB5BD; /* Light-medium grey */
+                --color-sidebar-bg: #FFFFFF; /* Puting sidebar (kung gagamitin) */
             }
             body {
-                font-family: 'Instrument Sans', sans-serif;
+                font-family: 'Inter', sans-serif;
             }
         </style>
     @endif
@@ -70,7 +75,7 @@
     </div>
 
     {{-- Main JavaScript bundle (from your welcome page code) --}}
-    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
+    @if (file_exists(public_path('build/manifest.json')) || file-exists(public_path('hot')))
         {{-- Vite already included above, this is for older Mix setups --}}
     @else
         <script src="{{ asset('js/app.js') }}"></script>

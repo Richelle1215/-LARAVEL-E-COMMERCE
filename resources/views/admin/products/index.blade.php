@@ -4,57 +4,23 @@
     <style>
         /* Base for the entire card container */
         .dashboard-container {
-            max-width: 800px; /* Adjusted max-width to match the look of the screenshot */
+            max-width: 800px; 
             margin: 50px auto;
             background-color: white;
             border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1); /* Slightly stronger shadow */
-            border: 1px solid #e5e7eb; /* Light border around the whole card */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
+            border: 1px solid #e5e7eb; 
         }
 
-        /* Styles for the nav buttons row */
+        /* Styles for the nav buttons row - Hiding the nav bar */
         .nav-buttons-bar {
-            display: flex;
-            justify-content: flex-start; /* Aligns to the left */
-            margin-bottom: 20px;
-            border-radius: 8px 8px 0 0;
-            padding: 20px 20px 0 20px; /* Padding inside the container */
-        }
-
-        /* General style for nav buttons */
-        .nav-btn {
-            border: none;
-            padding: 8px 16px; /* Smaller padding */
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 4px; /* Slightly smaller rounded corners */
-            transition: background-color 0.3s;
-            box-shadow: none; /* Remove box shadow from buttons */
-            margin-right: 10px; /* Space between buttons */
-        }
-        
-        /* Active (Categories) button style */
-        .nav-btn.categories-active {
-            background-color: #38a169; /* Green color from image */
-            color: white;
-        }
-        .nav-btn.categories-active:hover {
-            background-color: #2f855a; /* Darker green on hover */
-        }
-        
-        /* Inactive (Products) button style */
-        .nav-btn.products-inactive {
-            background-color: #3b82f6; /* Blue color from image */
-            color: white;
-        }
-        .nav-btn.products-inactive:hover {
-            background-color: #2563eb; /* Darker blue on hover */
+            display: none; 
         }
 
         /* Content Area Styles */
         .content-area {
             padding: 20px;
-            padding-top: 0; /* Remove top padding since nav is inside and needs space */
+            padding-top: 20px; 
         }
 
         h2 {
@@ -62,7 +28,6 @@
             font-weight: 600;
             margin-bottom: 20px;
             color: #1f2937;
-            /* The screenshot's H2 doesn't have a border */
             border-bottom: none;
             padding-bottom: 0;
         }
@@ -74,46 +39,56 @@
             display: block;
         }
 
-        /* Add New Category/Product button */
+        /* ========================================
+        NEW DESIGN: DUSTY ROSE/BROWNISH-RED ADD BUTTON
+        (Inspired by the "Discover Coats" button)
+        ========================================
+        */
         .add-btn {
-            background-color: #38a169; /* Green color for the Add button */
-            color: white;
-            border: none;
-            padding: 8px 16px; /* Smaller padding */
+            /* Dusty Rose / Brownish-Red color from the image (e.g., #99645b) */
+            background-color: #99645b; 
+            color: white; /* White text for contrast */
+            border: none; /* No border for a solid look */
+            padding: 8px 16px; 
             cursor: pointer;
-            border-radius: 4px; /* Match button style */
+            border-radius: 4px; 
             margin-bottom: 20px;
             text-decoration: none;
             display: inline-block;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.1s;
             font-size: 14px;
+            font-weight: 600; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
         }
         .add-btn:hover {
-            background-color: #2f855a;
+            background-color: #7f5148; /* Slightly darker shade on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        .add-btn:active {
+            transform: translateY(1px); /* Slight press effect */
         }
 
-        /* Table Styles */
+        /* Table Styles (Retained) */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 0; /* Align right after the add button */
+            margin-top: 0;
             border-radius: 4px;
             overflow: hidden;
-            box-shadow: none; /* Remove table shadow to make it look simpler as in the image */
+            box-shadow: none;
         }
         th, td {
             padding: 12px 15px;
             text-align: left;
-            border-bottom: 1px solid #e5e7eb; /* Light gray line */
+            border-bottom: 1px solid #e5e7eb;
         }
         th {
-            background-color: white; /* Header background white as in the image */
-            color: #1f2937; /* Darker header text color */
+            background-color: white;
+            color: #1f2937;
             font-weight: 600;
-            text-transform: none; /* No uppercase */
+            text-transform: none;
             font-size: 1em;
         }
-        /* Simple white and light gray row alternating */
         tr:nth-child(even) {
             background-color: #f9fafb;
         }
@@ -121,20 +96,20 @@
             border-bottom: none;
         }
 
-        /* Action Buttons (Edit/Delete) */
+        /* Action Buttons (Edit/Delete) - Retained (You might want to change these too, but keeping them neutral for now) */
         .action-btn {
-            padding: 4px 8px; /* Small padding */
+            padding: 4px 8px;
             cursor: pointer;
             border-radius: 4px;
             margin-right: 5px;
             text-decoration: none;
             display: inline-block;
             font-size: 0.85em;
-            border: 1px solid #d1d5db; /* Light gray border for all action buttons */
+            border: 1px solid #d1d5db;
         }
 
         .edit-btn {
-            background-color: #f3f4f6; /* Light gray background */
+            background-color: #f3f4f6;
             color: #1f2937;
         }
         .edit-btn:hover {
@@ -142,7 +117,7 @@
         }
 
         .delete-btn {
-            background-color: #f3f4f6; /* Light gray background */
+            background-color: #f3f4f6;
             color: #1f2937;
         }
         .delete-btn:hover {
@@ -166,51 +141,17 @@
     <div class="dashboard-container">
         
         <div class="nav-buttons-bar">
-            <button class="nav-btn categories-active" data-section="categories" onclick="showSection('categories', this, 'categories')">Categories</button>
-            <button class="nav-btn products-inactive" data-section="products" onclick="showSection('products', this, 'products')">Products</button>
         </div>
 
         <div class="content-area">
             
-            <div id="categories" class="section active">
-                <h2>Manage Categories</h2>
-                <a href="{{ route('admin.categories.create') }}" class="add-btn">Add New Category</a>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse($categories ?? [] as $category)
-                            <tr>
-                                <td>{{ $category->id }}</td>
-                                <td>{{ $category->name }}</td>
-                                <td>{{ $category->description ?? 'N/A' }}</td>
-                                <td>
-                                    <a href="{{ route('admin.categories.edit', $category->id) }}" class="action-btn edit-btn">Edit</a>
-                                    <form action="{{ route('admin.categories.destroy', $category->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('Are you sure you want to delete this category?')">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="action-btn delete-btn">Delete</button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="4">No categories found.</td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
-            </div>
-
-            <div id="products" class="section">
+            {{-- PRODUCTS SECTION: FULL FUNCTIONALITY --}}
+            <div id="products" class="section active">
                 <h2>Manage Products</h2>
+                
+                {{-- ADD NEW PRODUCT BUTTON (DUSTY ROSE DESIGN) --}}
                 <a href="{{ route('admin.products.create') }}" class="add-btn">Add New Product</a>
+                
                 <table>
                     <thead>
                         <tr>
@@ -257,35 +198,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        /**
-         * Toggles the active section and updates button styles.
-         * @param {string} sectionName - The ID of the section to show ('categories' or 'products').
-         * @param {HTMLElement} clickedButton - The button element that was clicked.
-         * @param {string} buttonType - The type of button ('categories' or 'products') to determine styling.
-         */
-        function showSection(sectionName, clickedButton, buttonType) {
-            // Hide all sections
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(sec => sec.classList.remove('active'));
-
-            // Update button styles
-            const buttons = document.querySelectorAll('.nav-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('categories-active', 'products-inactive');
-                const type = btn.getAttribute('data-section');
-                if (type === sectionName) {
-                    // The clicked button is the active one
-                    btn.classList.add(`${type}-active`);
-                } else {
-                    // The other button is the inactive one
-                    btn.classList.add(`${type}-inactive`);
-                }
-            });
-
-            // Show selected section
-            document.getElementById(sectionName).classList.add('active');
-        }
-    </script>
 @endsection

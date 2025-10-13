@@ -2,7 +2,7 @@
     class="navbar-nav sidebar sidebar-dark accordion"
     id="accordionSidebar"
     style="
-        background-image: linear-gradient(135deg, rgba(193, 134, 93, 0.9), rgba(27, 27, 24, 0.9));
+       background-color: #86544D;
         width: 280px !important; 
         min-width: 300px !important; 
         max-width: 300px !important;
@@ -13,14 +13,14 @@
 
     
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard') }}">
-        <div class="sidebar-brand-text mx-3">Elle Fashion - Admin</div>
+        <div class="sidebar-brand-text mx-3">Elle Fashion</div>
     </a>
 
     <hr class="sidebar-divider my-0">
 
     <!-- Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('dashboard') }}">
+        <a class="nav-link" href="{{ route('admin.dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
         </a>
