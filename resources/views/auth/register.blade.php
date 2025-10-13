@@ -9,43 +9,16 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-             <div class="mt-4">
-                <x-label for="first_name" value="{{ __('First Name') }}" />
-                <x-input id="first_name" class="block mt-1 w-full" type="text" name="first_name" :value="old('first_name')" required autocomplete="username" />
+            <div>
+                <x-label for="name" value="{{ __('Name') }}" />
+                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
-            
-            <div class="mt-4">
-                    <x-label for="last_name" value="{{ __('Last Name') }}" />
-                    <x-input id="last_name" class="block mt-1 w-full" type="text" name="last_name" :value="old('last_name')" required autocomplete="username" />
-            </div>
+
             <div class="mt-4">
                 <x-label for="email" value="{{ __('Email') }}" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             </div>
 
-                        <div class="mt-4">
-                <x-label for="phone" value="{{ __('Phone') }}" />
-                <x-input id="phone" class="block mt-1 w-full" type="number" name="phone" :value="old('phone')" required autocomplete="username" />
-            </div>
-
-            <div class="mt-4">
-                <x-label for="street" value="{{ __('street') }}" />
-                <x-input id="street" class="block mt-1 w-full" type="text" name="street" :value="old('street')" required autocomplete="street" />
-            </div>
-            <div class="mt-4">
-                <x-label for="city" value="{{ __('city') }}" />
-                <x-input id="city" class="block mt-1 w-full" type="text" name="city" :value="old('city')" required autocomplete="city" />
-            </div>
-
-            <div class="mt-4">
-                <x-label for="state" value="{{ __('state') }}" />
-                <x-input id="state" class="block mt-1 w-full" type="text" name="state" :value="old('state')" required autocomplete="state" />
-            </div>
-            <div class="mt-4">
-                <x-label for="country" value="{{ __('country') }}" />
-                <x-input id="country" class="block mt-1 w-full" type="text" name="country" :value="old('country')" required autocomplete="country" />
-            </div>
-            
             <div class="mt-4">
                 <x-label for="password" value="{{ __('Password') }}" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
