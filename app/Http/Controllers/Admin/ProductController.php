@@ -33,27 +33,41 @@ class ProductController extends Controller
         return view('admin.products.create', compact('categories'));
     }
 
-    public function store(Request $request)
-    {
-        // 1. **Validation** (Highly Recommended)
-        $request->validate([
-            'name' => 'required|max:255',
-            'price' => 'required|numeric',
-            'category_id' => 'required|exists:categories,id', // Make sure categories table exists
-            // ... other fields
-        ]);
+ // Sa iyong ProductController.php
+public function store(Request $request)
+{
+    // 1. Validation (Highly Recommended!)
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'description' => 'required|string',
+        'price' => 'required|numeric|min:0',
+        'stock' => 'required|integer|min:0',
+        'category_id' => 'required|exists:categories,id',
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Dapat image file
+    ]);
 
-        // 2. **Data Persistence** (Save to the database)
-        // Example:
-        // Product::create($request->all());
-
-        // 3. **Redirect** after successful save
-        return redirect()->route('admin.products.index')
-                         ->with('success', 'Product created successfully.');
-
-        // NOTE: Adjust the redirect route name to match your actual route setup.
+    // 2. Handle Image Upload
+    if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $filename = time() . '.' . $image->getClientOriginalExtension();
+        
+        // Ilagay ang image sa public/images/products folder
+        $image->move(public_path('images/products'), $filename); 
     }
 
+    // 3. Create Product
+    Product::create([
+        'name' => $request->name,
+        'description' => $request->description,
+        'price' => $request->price,
+        'stock' => $request->stock,
+        'category_id' => $request->category_id,
+        'image' => $filename ?? null, // I-save ang file name
+    ]);
+
+    return redirect()->route('admin.products.index')
+        ->with('success', 'Product added successfully!');
+}
     /**
      * Display the specified resource.
      * KEY FIX: Eager load category to avoid N+1 queries and null issues.

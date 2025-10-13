@@ -108,3 +108,10 @@ Route::get('/logout', function () {
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
 // o (kung resource route)
 Route::resource('categories', CategoryController::class);
+
+// Halimbawa lang ito, kung ang prefix mo ay 'admin'
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    // ... iba pang routes
+    Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+    // ... iba pang routes
+});

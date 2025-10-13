@@ -83,7 +83,7 @@
         <div class="md:w-1/2 lg:w-3/5 h-full flex items-center justify-center p-4">
             <img
                 {{-- IMPORTANT: Replace the placeholder below with your actual image path: --}}
-                src="{{ asset('products/image/CoverPage/cover-page.jpg') }}" 
+                src="{{ asset('image/CoverPage/cover-page.jpg') }}" 
                 alt="Elegant Sandals"
                 class="w-full h-auto max-h-full object-contain"
             >
@@ -98,7 +98,7 @@
             <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
-                    <img src="{{ asset('products/image/sandal-1.jpg') }}"  alt="Classic Block Heel Sandal" class="w-full h-72 object-cover">
+                    <img src="{{ asset('image/products/sandal-1.jpg') }}"  alt="Classic Block Heel Sandal" class="w-full h-72 object-cover">
                     <div class="p-4 text-center">
                         <h3 class="text-lg font-medium text-primary">Classic Block Heel Sandal</h3>
                         <p class="text-accent font-bold mt-1 mb-3">₱2,899</p>
@@ -109,7 +109,7 @@
                 </div>
 
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
-                    <img src="{{ asset('products/image/sandal-2.jpg') }}" alt="Elegant Strappy Heels" class="w-full h-72 object-cover">
+                    <img src="{{ asset('image/products/sandal-2.jpg') }}" alt="Elegant Strappy Heels" class="w-full h-72 object-cover">
                     <div class="p-4 text-center">
                         <h3 class="text-lg font-medium text-primary">Elegant Strappy Heels</h3>
                         <p class="text-accent font-bold mt-1 mb-3">₱3,299</p>
@@ -120,7 +120,7 @@
                 </div>
 
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
-                    <img src="{{ asset('products/image/sandal-3.jpg') }}" alt="Minimalist Flat Sandal" class="w-full h-72 object-cover">
+                    <img src="{{ asset('image/products/sandal-3.jpg') }}" alt="Minimalist Flat Sandal" class="w-full h-72 object-cover">
                     <div class="p-4 text-center">
                         <h3 class="text-lg font-medium text-primary">Minimalist Flat Sandal</h3>
                         <p class="text-accent font-bold mt-1 mb-3">₱1,899</p>
@@ -131,7 +131,7 @@
                 </div>
 
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
-                    <img src="{{ asset('products/image/sandal-4.jpg') }}" alt="Platform Wedge Sandal" class="w-full h-72 object-cover">
+                    <img src="{{ asset('image/products/sandal-4.jpg') }}" alt="Platform Wedge Sandal" class="w-full h-72 object-cover">
                     <div class="p-4 text-center">
                         <h3 class="text-lg font-medium text-primary">Platform Wedge Sandal</h3>
                         <p class="text-accent font-bold mt-1 mb-3">₱2,899</p>

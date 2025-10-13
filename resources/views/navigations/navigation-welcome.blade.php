@@ -54,7 +54,7 @@
                     @auth
                         {{-- Kung naka-login, gamitin ang built-in user dropdown (Jetstream) --}}
                         {{-- Ang Jetstream ay nag-a-assume na gagamitin mo ang <x-app-layout> para dito --}}
-                        <a href="{{ url('/dashboard') }}" class="text-sm font-semibold text-gray-700 hover:text-[#8C5B56] transition">DASHBOARD</a>
+                        <a href="{{ url('/admin') }}" class="text-sm font-semibold text-gray-700 hover:text-[#8C5B56] transition">Admin</a>
                         {{-- Maaari mo ring ilagay dito ang <x-app-layout> kung may user dropdown ka --}}
                     @else
                         {{-- Login link --}}

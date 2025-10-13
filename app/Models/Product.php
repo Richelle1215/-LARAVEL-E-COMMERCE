@@ -10,8 +10,15 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'slug', 'description', 'price', 'stock', 'image', 'status', 'category_id'];
-
+    // Sa iyong app/Models/Product.php
+protected $fillable = [
+    'name',
+    'description',
+    'price',
+    'stock',
+    'category_id',
+    'image', // Mahalaga ito para sa mass assignment
+];
     protected $casts = [
         'price' => 'decimal:2',
         'stock' => 'integer',
